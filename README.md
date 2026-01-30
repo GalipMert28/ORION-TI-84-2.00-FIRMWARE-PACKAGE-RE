@@ -3,6 +3,7 @@
 ## Introduction
 
 `ORION-TI-84-2.00-FIRMWARE-PACKAGE-RE` is a reverse-engineered firmware package for the Texas Instruments TI-84 calculator series, specifically version 2.00. This project provides tools, scripts, and documentation for analyzing and understanding the inner workings of the TI-84 firmware, enabling advanced customization, modification, and emulation.
+<img width="1050" height="569" alt="resim" src="https://github.com/user-attachments/assets/a27ee090-4d31-488a-9cb7-0c45b219b4b7" />
 
 ## Features
 
