@@ -4,6 +4,9 @@
 
 ORION-TI-84-2.00-FIRMWARE-PACKAGE-RE is a pure reverse engineering project focused on the Texas Instruments TI-84 calculator firmware version 2.00, analyzed entirely at the assembly level.
 (My First RE Project)
+
+
+
 This project examines the firmware’s binary structure, memory layout, reset and interrupt vectors, hardware I/O interactions, and control flow. High-level decompilation is intentionally avoided. The primary objective is static disassembly analysis and understanding hardware-level behavior.
 <img width="1050" height="569" alt="resim" src="https://github.com/user-attachments/assets/e93ed356-e4a0-40e7-ae90-94c2f985f9e9" />
 
