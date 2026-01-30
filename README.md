@@ -2,7 +2,7 @@
 
 ## Overview
 
-ORION-TI-84-2.00-FIRMWARE-PACKAGE-RE is a pure reverse engineering project focused on the Texas Instruments TI-84 calculator firmware version 2.00, analyzed entirely at the assembly level.
+ORION-TI-84-2.00-FIRMWARE-PACKAGE-RE is a pure reverse engineering project focused on the Orion TI-84 Plus calculator firmware version 2.00, analyzed entirely at the assembly level.
 (My First RE Project)
 
 
@@ -114,4 +114,4 @@ Fork the repository, use clear technical commit messages, and document your anal
 This project is licensed under the GNU General Public License v3.0 (GPL-3.0).
 
 The TI-84 firmware image is not included.  
-All firmware rights remain with Texas Instruments.
+All firmware rights remain with Texas Orion.
