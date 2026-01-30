@@ -1,121 +1,114 @@
 # ORION-TI-84-2.00-FIRMWARE-PACKAGE-RE
 
-## Introduction
+## Overview
 
-`ORION-TI-84-2.00-FIRMWARE-PACKAGE-RE` is a reverse-engineered firmware package for the Texas Instruments TI-84 calculator series, specifically version 2.00. This project provides tools, scripts, and documentation for analyzing and understanding the inner workings of the TI-84 firmware, enabling advanced customization, modification, and emulation.
-<img width="1050" height="569" alt="resim" src="https://github.com/user-attachments/assets/a27ee090-4d31-488a-9cb7-0c45b219b4b7" />
+ORION-TI-84-2.00-FIRMWARE-PACKAGE-RE is a pure reverse engineering project focused on the Texas Instruments TI-84 calculator firmware version 2.00, analyzed entirely at the assembly level.
+(My First RE Project)
+This project examines the firmware’s binary structure, memory layout, reset and interrupt vectors, hardware I/O interactions, and control flow. High-level decompilation is intentionally avoided. The primary objective is static disassembly analysis and understanding hardware-level behavior.
+<img width="1050" height="569" alt="resim" src="https://github.com/user-attachments/assets/e93ed356-e4a0-40e7-ae90-94c2f985f9e9" />
 
-## Features
+---
 
-- Decompilation, disassembly, and analysis of TI-84 firmware version 2.00
-- Tools for extracting, modifying, and rebuilding firmware images
-- Scripts for patching and customizing firmware behavior
-- Detailed documentation of firmware structure and functions
-- Utilities for emulation and testing in various environments
-- Support for both Windows and Unix-like platforms
+## Project Goals
+
+- Analyze the internal structure of TI-84 OS 2.00 at the assembly level  
+- Examine reset, interrupt (RST/NMI), and boot processes  
+- Map RAM and ROM usage and memory addressing  
+- Identify and document IN / OUT hardware port operations  
+- Organize automatic disassembly output into logical modules  
+- Provide a foundation for advanced firmware research and emulation  
+
+This project is intended strictly for educational and research purposes.
+
+---
+
+## Scope
+
+- Z80-based TI-84 firmware binary disassembly  
+- Analysis of RST0–RST7, NMI, and interrupt entry points  
+- Cross-reference (XREF) analysis of assembly routines  
+- Separation of code, data, and padding regions  
+- Identification of hardware-specific registers and I/O ports  
+
+This repository:
+- Does not include the firmware image  
+- Does not claim complete or finalized documentation  
+- Represents an ongoing reverse engineering effort  
+
+---
+
+## Contents
+
+- Disassembly outputs compatible with IDA and Ghidra  
+- Firmware segmentation and analysis notes  
+- Memory and function mapping scripts  
+- Assembly-level annotations and symbol labeling  
+- Supporting Python scripts for automated analysis  
+
+---
 
 ## Requirements
 
-Before using the package, ensure you have the following:
+- Windows, Linux, or macOS  
+- Python 3.7 or newer  
+- Git  
+- Optional but recommended:
+  - IDA Pro  
+  - Ghidra  
+  - Other static reverse engineering tools  
+- TI-84 firmware version 2.00 image (must be obtained separately)  
 
-- A compatible operating system (Windows, macOS, or Linux)
-- Python 3.7 or higher
-- Git for cloning the repository
-- Standard developer tools (make, gcc, etc.) for building utilities
-- TI-84 firmware image version 2.00 (not included)
-- Optional: IDA Pro, Ghidra, or similar tools for advanced reverse engineering
+---
 
 ## Installation
 
-Follow these steps to get started:
-
-1. Clone the repository:
-
-    ```bash
     git clone https://github.com/GalipMert28/ORION-TI-84-2.00-FIRMWARE-PACKAGE-RE.git
     cd ORION-TI-84-2.00-FIRMWARE-PACKAGE-RE
-    ```
-
-2. Install Python dependencies:
-
-    ```bash
     pip install -r requirements.txt
-    ```
 
-3. Build native utilities (if required):
+Place the firmware image into the `firmware/` directory.
 
-    ```bash
-    make
-    ```
-
-4. Place your TI-84 firmware image (`TI84_OS_2.00.img` or similarly named) into the `firmware` directory.
+---
 
 ## Usage
 
-### Extracting and Analyzing the Firmware
+### Firmware Analysis
 
-- To extract sections of the firmware image:
-
-    ```bash
     python tools/extract_firmware.py firmware/TI84_OS_2.00.img output/
-    ```
-
-- To run automated analysis scripts:
-
-    ```bash
     python analysis/firmware_analysis.py output/
-    ```
 
-- Use included plugins for IDA Pro or Ghidra to load and analyze extracted binaries.
+Load the extracted binaries into IDA or Ghidra for manual analysis.
 
-### Patching the Firmware
+---
 
-- Apply provided patches with:
+## Methodology
 
-    ```bash
-    python tools/apply_patch.py patches/custom_patch.diff firmware/TI84_OS_2.00.img
-    ```
+1. Static analysis of the firmware binary  
+2. Identification of reset and interrupt entry points  
+3. Classification of high-XREF regions as core logic  
+4. Mapping of I/O port access to hardware functionality  
+5. Separation of code, data, and padding regions  
+6. Progressive labeling and annotation of assembly routines  
 
-- Build a new firmware image:
+This process is iterative and continuously refined.
 
-    ```bash
-    python tools/build_firmware.py output/ new_firmware.img
-    ```
-
-### Emulation
-
-- Use the included emulation utilities or recommended third-party emulators to test modified firmware images.
-
-## Configuration
-
-- Adjust `config/settings.json` to control paths, tool preferences, and analysis options.
-- Modify `Makefile` variables for build customization.
-- Add custom patches and scripts in the `patches/` and `tools/` directories, respectively.
-
-### Example Configuration (`config/settings.json`):
-
-```json
-{
-    "firmware_path": "firmware/TI84_OS_2.00.img",
-    "output_dir": "output/",
-    "use_ida": true,
-    "emulator_path": "/usr/local/bin/ti84emu"
-}
-```
+---
 
 ## Contributing
 
-Contributions are highly encouraged! To contribute:
+Contributions are welcome, particularly in:
+- Assembly routine labeling  
+- Memory map refinement  
+- Hardware I/O port analysis  
+- Logical segmentation improvements  
 
-- Fork the repository.
-- Create a feature branch.
-- Make your changes with clear, descriptive commit messages.
-- Submit a pull request with a detailed description.
+Fork the repository, use clear technical commit messages, and document your analysis in pull requests.
 
-Please review existing issues and open new ones for bugs or feature requests. Follow the repository’s code style and guidelines.
+---
 
 ## License
 
-This project is licensed under the GNU General Public License v3.0 (GPL-3.0). You may freely use, modify, and distribute this software, provided that all copies and derivatives remain under the same license.
+This project is licensed under the GNU General Public License v3.0 (GPL-3.0).
 
-For full license details, see the `LICENSE` file in the repository.
+The TI-84 firmware image is not included.  
+All firmware rights remain with Texas Instruments.
